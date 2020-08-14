@@ -1,0 +1,6 @@
+"content"
+{
+	"base"		"base"
+	"title"		"Trouble in Terrorist Town"
+	"maps"		"^ttt_"
+}
