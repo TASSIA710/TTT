@@ -15,7 +15,7 @@ include("sh_logging.lua")
 
 -- Print start
 Log.Info("------------------------------")
-Log.Info("[TTT] Booting...")
+Log.Info("Booting...")
 
 
 
@@ -37,5 +37,5 @@ include("core/sv_init.lua")
 
 
 -- Print finished
-Log.Info("[TTT] Done! Took " .. math.Round((SysTime() - start) * 1000, 2) .. "ms")
+Log.Info("Done! Took " .. math.Round((SysTime() - start) * 1000, 2) .. "ms")
 Log.Info("------------------------------")
