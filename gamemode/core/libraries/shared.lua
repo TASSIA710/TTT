@@ -4,10 +4,16 @@
 	by Tassilo (https://github.com/TASSIA710)
 --]]
 
+
 -- Define libraries
 local libraries = {
+	"database",
+	"derma",
+	"generic",
 	"hooks",
-	"metatables"
+	"hud",
+	"metatables",
+	"scoreboard"
 }
 
 
