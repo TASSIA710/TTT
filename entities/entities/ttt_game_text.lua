@@ -31,7 +31,7 @@ function ENT:KeyValue(key, value)
 	elseif key == "receive" then
 		self.Receiver = tonumber(value)
 		if not (self.Receiver and self.Receiver >= 0 and self.Receiver <= 4) then
-			ErrorNoHalt("ERROR: ttt_game_text has invalid receiver value\n")
+			Log.Warning("ttt_game_text has invalid receiver value")
 			self.Receiver = RECEIVE_ACTIVATOR
 		end
 	end
