@@ -42,7 +42,7 @@ function FRAME:Init()
 end
 
 function FRAME:OnRemove()
-	TTT.Derma._WinScreenOpen = false
+	TTT.Derma._MenuOpen = false
 end
 
 vgui.Register("TTT:WinScreen", FRAME, "DFrame")

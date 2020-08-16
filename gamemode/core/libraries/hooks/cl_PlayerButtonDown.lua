@@ -6,9 +6,15 @@
 
 function GM:PlayerButtonDown(ply, btn)
 
-	if btn == KEY_C then
-		if TTT.GetRoundState() ~= ROUND_POST and TTT.GetRoundState() ~= ROUND_WAITING and TTT.GetRoundState() ~= ROUND_WARMUP then return end
-		TTT.Derma.ShowWinScreen()
+	if btn == KEY_F1 then
+		if TTT.GetRoundState() == ROUND_PLAYING then
+			if LocalPlayer():IsTraitor() then
+				TTT.Derma.ShowTraitorShop()
+			elseif LocalPlayer():IsDetective() then
+			end
+		else
+			TTT.Derma.ShowWinScreen()
+		end
 	end
 
 end

@@ -5,8 +5,10 @@
 --]]
 
 TTT.Derma = {}
+TTT.Derma._MenuOpen = false
 
 -- Include files
+include("cl_vgui_traitorshop.lua")
 include("cl_vgui_ttt_button.lua")
 include("cl_vgui_ttt_frame.lua")
 include("cl_vgui_winscreen.lua")
@@ -37,15 +39,29 @@ end)
 
 
 -- >> Win Screen
-TTT.Derma._WinScreenOpen = false
-
 --- Opens the win screen at the end of the round.
 function TTT.Derma.ShowWinScreen()
-	if TTT.Derma._WinScreenOpen then return end
+	if TTT.Derma._MenuOpen then return end
 	if TTT._WinState == WIN_NONE then return end
-	TTT.Derma._WinScreenOpen = true
+	TTT.Derma._MenuOpen = true
 
 	local frame = vgui.Create("TTT:WinScreen")
 	frame:MakePopup()
 end
 -- >> Win Screen
+
+
+
+
+
+-- >> Traitor Shop
+--- Opens the traitor shop.
+function TTT.Derma.ShowTraitorShop()
+	if TTT.Derma._MenuOpen then return end
+	if TTT._WinState == WIN_NONE then return end
+	TTT.Derma._MenuOpen = true
+
+	local frame = vgui.Create("TTT:TraitorShop")
+	frame:MakePopup()
+end
+-- >> Traitor Shop

@@ -24,4 +24,5 @@ function GM:PlayerSpawn(ply)
 		ply:Spectate(OBS_MODE_ROAMING)
 	end
 
+	ply._JustDied = false
 end

@@ -25,7 +25,7 @@ TTT.Lang.HUD_State_Preparing = "Preparing"
 TTT.Lang.HUD_State_RoundOver = "Round Over"
 TTT.Lang.HUD_State_Haste = "HASTE"
 
--- WIN phrases
+-- Win phrases
 TTT.Lang.Win_Title = "Round Over!"
 TTT.Lang.Win_Error = "Error"
 TTT.Lang.Win_Timeout = "Timelimit reached!"
@@ -34,3 +34,6 @@ TTT.Lang.Win_Traitor = "The traitors win!"
 TTT.Lang.Win_Jester = "The jester wins!"
 TTT.Lang.Win_SerialKiller = "The serial killer wins!"
 TTT.Lang.Win_Infected = "The plague wins!"
+
+-- TraitorShop phrases
+TTT.Lang.TraitorShop_Title = "Traitor Shop"

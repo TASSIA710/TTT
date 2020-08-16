@@ -5,5 +5,6 @@
 --]]
 
 function GM:PostPlayerDeath(ply)
+	ply._JustDied = true
 	TTT.CheckWin()
 end

@@ -8,15 +8,31 @@ function GM:TTTProgressRound()
 
 	if TTT.GetRoundState() == ROUND_WARMUP then
 		Log.Info("Round progress: WARMUP -> PLAYING")
-		local roles = TTT.DecideRoles()
+
+		-- Reset players healths
+		for _, ply in pairs(player.GetAll()) do
+			if ply:IsSpectator() then continue end
+			if not ply:Alive() then
+				ply:Spawn()
+			end
+			ply:SetHealth(100)
+		end
+
+		-- Set round state
 		TTT.SetRoundState(ROUND_PLAYING)
 		SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthRound)
+
+		-- Set roles
+		local roles = TTT.DecideRoles()
 		for role, plys in pairs(roles) do
 			if not plys then continue end
 			for _, ply in pairs(plys) do
 				ply:SetRole(role)
 			end
 		end
+
+		-- Check win to make sure
+		TTT.CheckWin()
 		return
 	end
 
