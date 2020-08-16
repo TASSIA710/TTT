@@ -8,6 +8,18 @@
 
 
 
+-- >> Refresh Map
+--- Refreshes the map. This involves cleaning decals, removing spawned weapons
+-- and ammunitions, and reloading default weapon spawns.
+function TTT.RefreshMap()
+	game.CleanUpMap()
+end
+-- >> Refresh Map
+
+
+
+
+
 -- >> Check Win
 --- Called to check if the current round should end.
 function TTT.CheckWin()
@@ -50,6 +62,7 @@ end
 -- the round state to `ROUND_WARMUP`.
 function TTT.StartRound()
 	SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthPrephase)
+	TTT.RefreshMap()
 	TTT.SetRoundState(ROUND_WARMUP)
 
 	for _, ply in pairs(player.GetAll()) do
