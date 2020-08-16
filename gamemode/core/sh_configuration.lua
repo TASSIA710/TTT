@@ -84,6 +84,7 @@ TTT.Config.Weapons = {
 
 -- Weapon replacements
 TTT.Config.WeaponReplacements = {
+	["item_ammo_pistol_ttt"] = "cw_ammo_9x19",
 	["item_box_buckshot_ttt"] = "cw_ammo_12gauge",
 	["weapon_ttt_confgrenade"] = "ttt_cw2_frag_grenade",
 	["weapon_ttt_glock"] = "ttt_cw2_p99",
