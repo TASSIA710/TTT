@@ -17,6 +17,15 @@ local log_net = true
 local function varargsToString(level, ...)
 	local args, str = {...}, ""
 	for _, arg in pairs(args) do
+		if isentity(arg) then
+			if arg:IsPlayer() then
+				arg = arg:Nick() .. " (" .. arg:UserID() .. ")"
+			else
+				arg = arg:GetClass() .. "-" .. arg:EntIndex()
+			end
+		elseif isvector(arg) then
+			arg = arg.x .. ", " .. arg.y .. ", " .. arg.z
+		end
 		str = str .. " " .. tostring(arg)
 	end
 	return os.date("%c") .. " | " .. level .. " | " .. string.sub(str, 2)
