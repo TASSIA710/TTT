@@ -80,3 +80,57 @@ function Log.Net(...)
 	if SERVER and pterodactyl then print("\27[38;2;127;127;255m" .. varargsToString("   NET", ...) .. "\27[0m")
 	else MsgC(Color(127, 127, 255), varargsToString("   NET", ...) .. "\n") end
 end
+
+
+
+
+
+-- >> Error Overrides
+local default_error = error
+local default_Error = Error
+local default_ErrorNoHalt = ErrorNoHalt
+
+function error(msg, error_level)
+	Log.Severe(msg)
+	default_error(msg, error_level)
+end
+
+function Error(...)
+	Log.Error(varargsToString(...))
+	default_Error(...)
+end
+
+function ErrorNoHalt(...)
+	Log.Error(varargsToString(...))
+	default_ErrorNoHalt(...)
+end
+-- >> Error Overrides
+
+
+
+
+
+-- >> Net Overrides
+local default_NetStart = net.Start
+local default_NetReceive = net.Receive
+
+function net.Start(msg, unreliable)
+	default_NetStart(msg, unreliable)
+	if SERVER then
+		Log.Net("SV --> CL | " .. msg)
+	else
+		Log.Net("SV <-- CL | " .. msg)
+	end
+end
+
+function net.Receive(msg, callback)
+	default_NetReceive(msg, function(len, ply)
+		callback(len, ply)
+		if SERVER then
+			Log.Net("SV <-- CL | " .. msg)
+		else
+			Log.Net("SV --> CL | " .. msg)
+		end
+	end)
+end
+-- >> Net Overrides
