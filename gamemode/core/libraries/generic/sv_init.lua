@@ -186,3 +186,49 @@ function TTT.DecideRoles()
 	return roles
 end
 -- >> Decide roles
+
+
+
+
+
+-- >> Recipient Filters
+--- @stub
+function TTT.GetAllFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetSpectatorFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetDeadFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetAliveFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetDetectiveFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetInnocentFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetTraitorFilter()
+	-- TODO
+end
+
+--- @stub
+function TTT.GetInfectedFilter()
+	-- TODO
+end
+-- >> Recipient Filters
