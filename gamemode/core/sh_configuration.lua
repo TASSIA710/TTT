@@ -54,43 +54,43 @@ TTT.Config.MinInfected = 5 -- How many innocents are required for an infected pl
 
 -- Weapons
 TTT.Config.Weapons = {
-	"cw_ak74", -- Ammo: 5.45x39MM
-	"cw_ar15", -- Ammo: 5.56x45MM
-	"cw_deagle", -- Ammo: .50 AE
-	"cw_flash_grenade", -- Ammo: none
-	"cw_frag_grenade", -- Ammo: none
-	"cw_g3a3", -- Ammo: 7.62x51MM
-	"cw_l115", -- Ammo: .338 Lapua
-	"cw_mp5", -- Ammo: 9x19MM
-	"cw_mr96", -- Ammo: .44 Magnum
-	"cw_smoke_grenade", -- Ammo: none
-	"cw_g36c", -- Ammo: 5.56x45MM
-	"cw_l85a2", -- Ammo: 5.56x45MM
-	"cw_m249_official", -- Ammo: 5.56x45MM
-	"cw_m14", -- Ammo: 7.62x51MM
-	"cw_scarh", -- Ammo: 7.62x51MM
-	"cw_p99", -- Ammo: 9x19MM
-	"cw_shorty", -- Ammo: 12 Gauge
-	"cw_m3super90", -- Ammo: 12 Gauge
-	"cw_ump45", -- Ammo: .45 ACP
-	"cw_m1911", -- Ammo: .45 ACP
-	"cw_mac11", -- Ammo: 9x17MM
-	"cw_vss", -- Ammo: 9x39MM
-	"cw_fiveseven", -- Ammo: 5.7x28MM
-	"cw_makarov" -- Ammo: 9x18MM
+	"ttt_cw2_ak74", -- Ammo: 5.45x39MM
+	"ttt_cw2_ar15", -- Ammo: 5.56x45MM
+	"ttt_cw2_deagle", -- Ammo: .50 AE
+	"ttt_cw2_flash_grenade", -- Ammo: none
+	"ttt_cw2_frag_grenade", -- Ammo: none
+	"ttt_cw2_g3a3", -- Ammo: 7.62x51MM
+	"ttt_cw2_l115", -- Ammo: .338 Lapua
+	"ttt_cw2_mp5", -- Ammo: 9x19MM
+	"ttt_cw2_mr96", -- Ammo: .44 Magnum
+	"ttt_cw2_smoke_grenade", -- Ammo: none
+	"ttt_cw2_g36c", -- Ammo: 5.56x45MM
+	"ttt_cw2_l85a2", -- Ammo: 5.56x45MM
+	"ttt_cw2_m249_official", -- Ammo: 5.56x45MM
+	"ttt_cw2_m14", -- Ammo: 7.62x51MM
+	"ttt_cw2_scarh", -- Ammo: 7.62x51MM
+	"ttt_cw2_p99", -- Ammo: 9x19MM
+	"ttt_cw2_shorty", -- Ammo: 12 Gauge
+	"ttt_cw2_m3super90", -- Ammo: 12 Gauge
+	"ttt_cw2_ump45", -- Ammo: .45 ACP
+	"ttt_cw2_m1911", -- Ammo: .45 ACP
+	"ttt_cw2_mac11", -- Ammo: 9x17MM
+	"ttt_cw2_vss", -- Ammo: 9x39MM
+	"ttt_cw2_fiveseven", -- Ammo: 5.7x28MM
+	"ttt_cw2_makarov" -- Ammo: 9x18MM
 }
 
 
 
 -- Weapon replacements
 TTT.Config.WeaponReplacements = {
-	["weapon_zm_mac10"] = "cw_mac11",
-	["weapon_zm_molotov"] = "cw_frag_grenade",
-	["weapon_zm_pistol"] = "cw_m1911",
-	["weapon_zm_revolver"] = "cw_mr96",
-	["weapon_zm_rifle"] = "cw_l115",
-	["weapon_zm_shotgun"] = "cw_m3super90",
-	["weapon_zm_sledge"] = "cw_m249_official"
+	["weapon_zm_mac10"] = "ttt_cw2_mac11",
+	["weapon_zm_molotov"] = "ttt_cw2_frag_grenade",
+	["weapon_zm_pistol"] = "ttt_cw2_m1911",
+	["weapon_zm_revolver"] = "ttt_cw2_mr96",
+	["weapon_zm_rifle"] = "ttt_cw2_l115",
+	["weapon_zm_shotgun"] = "ttt_cw2_m3super90",
+	["weapon_zm_sledge"] = "ttt_cw2_m249_official"
 }
 
 
