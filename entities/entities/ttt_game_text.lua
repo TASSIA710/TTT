@@ -51,7 +51,7 @@ function ENT:AcceptInput(name, activator)
 			recv = TTT.GetInnocentFilter()
 		elseif r == RECEIVE_ACTIVATOR then
 			if not IsValid(activator) or not activator:IsPlayer() then
-				ErrorNoHalt("ttt_game_text tried to show message to invalid !activator\n")
+				Log.Warning("ttt_game_text tried to show message to invalid !activator\n")
 				return true
 			end
 		end
