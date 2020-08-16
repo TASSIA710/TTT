@@ -5,9 +5,9 @@
 --]]
 
 function GM:PlayerDisconnected(ply)
+	ply._AboutToDisconnect = true
 
 	if TTT.GetRoundState() == ROUND_WARMUP then
-		ply._AboutToDisconnect = true
 		local should = hook.Run("TTTShouldRoundStart")
 		if not should then
 			Log.Info("Round progress: WARMUP -> WAITING")
@@ -16,5 +16,4 @@ function GM:PlayerDisconnected(ply)
 	end
 
 	TTT.CheckWin()
-
 end

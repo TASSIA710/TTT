@@ -4,9 +4,22 @@
 	by Tassilo (https://github.com/TASSIA710)
 --]]
 
+
 surface.CreateFont("TTTHUD", {
 		font = "Roboto",
 		size = ScrH() / 31,
+		weight = 500,
+		bold = false
+})
+surface.CreateFont("TTTHUD2", {
+		font = "Roboto",
+		size = ScrH() / 51,
+		weight = 500,
+		bold = false
+})
+surface.CreateFont("TTTHUDSub", {
+		font = "Roboto",
+		size = ScrH() / 71,
 		weight = 500,
 		bold = false
 })
@@ -29,6 +42,77 @@ function TTT.HUD.DrawRectangle(x, y, w, h, text, color)
 
 	-- Draw text
 	draw.SimpleText(text, "TTTHUD", x + (w * 0.5), y + (h * 0.5), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+
+	-- Corner: TopLeft
+	surface.DrawRect(x - 1, y - 1, 3 + border_length, 3)
+	surface.DrawRect(x - 1, y - 1, 3, 3 + border_length)
+
+	-- Corner: TopRight
+	surface.DrawRect(x + w - 2 - border_length, y - 1, 3 + border_length, 3)
+	surface.DrawRect(x + w - 2, y - 1, 3, 3 + border_length)
+
+	-- Corner: BottomLeft
+	surface.DrawRect(x - 1, y + h - 2, 3 + border_length, 3)
+	surface.DrawRect(x - 1, y + h - 2 - border_length, 3, 3 + border_length)
+
+	-- Corner: BottomRight
+	surface.DrawRect(x + w - 2 - border_length, y + h - 2, 3 + border_length, 3)
+	surface.DrawRect(x + w - 2, y + h - 2 - border_length, 3, 3 + border_length)
+end
+
+
+function TTT.HUD.DrawRectangleSub(x, y, w, h, text, text2, color)
+	-- Shadow (or well something alike)
+	surface.SetDrawColor(0, 0, 0, 127)
+	surface.DrawRect(x - 1, y - 1, w + 2, h + 2)
+
+	-- Background
+	surface.SetDrawColor(color.r, color.g, color.b, 195)
+	surface.DrawRect(x, y, w, h)
+
+	-- Border
+	surface.SetDrawColor(255, 255, 255, 127)
+	surface.DrawOutlinedRect(x, y, w, h)
+	surface.SetDrawColor(255, 255, 255, 195)
+
+	-- Draw text
+	draw.SimpleText(text, "TTTHUD", x + (w * 0.5), y + (h * 0.5) - 4, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+	draw.SimpleText(text2, "TTTHUDSub", x + (w * 0.5), y + (h * 0.5) + 12, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+
+	-- Corner: TopLeft
+	surface.DrawRect(x - 1, y - 1, 3 + border_length, 3)
+	surface.DrawRect(x - 1, y - 1, 3, 3 + border_length)
+
+	-- Corner: TopRight
+	surface.DrawRect(x + w - 2 - border_length, y - 1, 3 + border_length, 3)
+	surface.DrawRect(x + w - 2, y - 1, 3, 3 + border_length)
+
+	-- Corner: BottomLeft
+	surface.DrawRect(x - 1, y + h - 2, 3 + border_length, 3)
+	surface.DrawRect(x - 1, y + h - 2 - border_length, 3, 3 + border_length)
+
+	-- Corner: BottomRight
+	surface.DrawRect(x + w - 2 - border_length, y + h - 2, 3 + border_length, 3)
+	surface.DrawRect(x + w - 2, y + h - 2 - border_length, 3, 3 + border_length)
+end
+
+
+function TTT.HUD.DrawRectangleBar(x, y, w, h, text, value, color)
+	-- Shadow (or well something alike)
+	surface.SetDrawColor(0, 0, 0, 127)
+	surface.DrawRect(x - 1, y - 1, w + 2, h + 2)
+
+	-- Background
+	surface.SetDrawColor(color.r, color.g, color.b, 195)
+	surface.DrawRect(x, y, w, h)
+
+	-- Border
+	surface.SetDrawColor(255, 255, 255, 127)
+	surface.DrawOutlinedRect(x, y, w, h)
+	surface.SetDrawColor(255, 255, 255, 195)
+
+	-- Draw text
+	draw.SimpleText(text, "TTTHUD2", x + (w * 0.5), y + (h * 0.5), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
 	-- Corner: TopLeft
 	surface.DrawRect(x - 1, y - 1, 3 + border_length, 3)
@@ -81,7 +165,15 @@ end
 
 
 return function()
+	-- Draw health
 	TTT.HUD.DrawRectangle(64, ScrH() - 64 - 48, 64 * 2 - 8, 48, LocalPlayer():Health(), Color(0, 0, 0))
+
+	-- Draw ammunition
+	local wep = LocalPlayer():GetActiveWeapon()
+	if IsValid(wep) and wep:Clip1() ~= -1 then
+		local str = wep:Clip1() .. "/" .. LocalPlayer():GetAmmoCount(wep:GetPrimaryAmmoType())
+		TTT.HUD.DrawRectangle(64 + (8 + 64 * 2) * 2, ScrH() - 64 - 48, 64 * 2 - 8, 48, str, Color(0, 0, 0))
+	end
 
 	if TTT.GetRoundState() == ROUND_FALLBACK then
 		TTT.HUD.DrawRectangle(64, ScrH() - 64 - 48 - 48 - 16, 64 * 4, 48, "Error", Color(0, 0, 0))
@@ -109,5 +201,5 @@ return function()
 
 	local role = LocalPlayer():GetRole()
 	TTT.HUD.DrawRectangle(64, ScrH() - 64 - 48 - 48 - 16, 64 * 4, 48, roles[role][1], roles[role][2])
-	TTT.HUD.DrawRectangle(64 + 8 + 64 * 2, ScrH() - 64 - 48, 64 * 2 - 8, 48, formatTime(), Color(0, 0, 0))
+	TTT.HUD.DrawRectangleSub(64 + 8 + 64 * 2, ScrH() - 64 - 48, 64 * 2 - 8, 48, formatTime(), "HASTE", Color(0, 0, 0))
 end

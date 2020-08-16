@@ -74,6 +74,7 @@ function TTT.CancelRound()
 	SetGlobalFloat("TTT:RoundEnd", 0)
 	TTT.SetRoundState(ROUND_WAITING)
 	for _, ply in pairs(player.GetAll()) do
+		ply:StripAmmo()
 		ply:StripWeapons()
 		ply:Spectate(OBS_MODE_ROAMING)
 	end

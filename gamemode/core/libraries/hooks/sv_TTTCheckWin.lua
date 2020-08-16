@@ -5,6 +5,7 @@
 --]]
 
 function GM:TTTCheckWin()
+	Log.Debug("Checking for win...")
 	local allTraitor = true
 	local allInnocent = true
 	local allSerialKiller = true
@@ -12,6 +13,7 @@ function GM:TTTCheckWin()
 
 	for _, ply in pairs(player.GetAll()) do
 		if ply._AboutToDisconnect then continue end
+		if not ply:IsAlive() then continue end
 		if ply:IsInnocent() or ply:IsDetective() then
 			allTraitor = false
 			allSerialKiller = false
@@ -32,12 +34,19 @@ function GM:TTTCheckWin()
 	end
 
 	if allTraitor then
-		TTT.SendWin(WIN_TRAITOR)
+		Log.Debug("Only traitors left, result: WIN_TRAITOR")
+		return WIN_TRAITOR
 	elseif allInnocent then
-		TTT.SendWin(WIN_INNOCENT)
+		Log.Debug("Only innocents left, result: WIN_INNOCENT")
+		return WIN_INNOCENT
 	elseif allSerialKiller then
-		TTT.SendWin(WIN_SERIAL_KILLER)
+		Log.Debug("Only the serial killer left, result: WIN_SERIAL_KILLER")
+		return WIN_SERIAL_KILLER
 	elseif allInfected then
-		TTT.SendWin(WIN_INFECTED)
+		Log.Debug("Only infected left, result: WIN_INFECTED")
+		return WIN_INFECTED
+	else
+		Log.Debug("Players of multiple roles left, aborting.")
+		return false
 	end
 end

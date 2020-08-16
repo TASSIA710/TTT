@@ -10,6 +10,18 @@ local PLAYER = FindMetaTable("Player")
 
 
 
+-- >> Is Alive?
+--- Checks whether the player is alive, aka. actively playing.
+-- @returns alvie [boolean] - is alive
+function PLAYER:IsAlive()
+	return self:GetObserverMode() ~= OBS_MODE_NONE and not self:IsSpectator()
+end
+-- >> Is Alive?
+
+
+
+
+
 -- >> Role
 --- Returns the role of this player.
 -- @returns role [number] - the role

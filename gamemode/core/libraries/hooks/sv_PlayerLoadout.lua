@@ -5,5 +5,7 @@
 --]]
 
 function GM:PlayerLoadout(ply)
+	ply:StripAmmo()
+	ply:StripWeapons()
 	ply:Give("ttt_crowbar")
 end
