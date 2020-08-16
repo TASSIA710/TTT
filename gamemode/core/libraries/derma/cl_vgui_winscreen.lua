@@ -7,13 +7,13 @@
 local WIN_BANNER = {}
 
 local win_states = {
-	[WIN_NONE] = { "Error", Color(0, 0, 0) },
-	[WIN_TIMEOUT] = { "Timelimit reached!", Color(0, 0, 0) },
-	[WIN_INNOCENT] = { "The innocent win!", Color(0, 195, 0) },
-	[WIN_TRAITOR] = { "The traitors win!", Color(195, 0, 0) },
-	[WIN_JESTER] = { "The jester wins!", Color(127, 127, 0) },
-	[WIN_SERIAL_KILLER] = { "The serial killer wins!", Color(63, 0, 0) },
-	[WIN_INFECTED] = { "The plague wins!", Color(95, 127, 0) }
+	[WIN_NONE] = { TTT.Lang.Win_Error, Color(0, 0, 0) },
+	[WIN_TIMEOUT] = { TTT.Lang.Win_Timeout, Color(0, 0, 0) },
+	[WIN_INNOCENT] = { TTT.Lang.Win_Innocent, Color(0, 195, 0) },
+	[WIN_TRAITOR] = { TTT.Lang.Win_Traitor, Color(195, 0, 0) },
+	[WIN_JESTER] = { TTT.Lang.Win_Jester, Color(127, 127, 0) },
+	[WIN_SERIAL_KILLER] = { TTT.Lang.Win_SerialKiller, Color(63, 0, 0) },
+	[WIN_INFECTED] = { TTT.Lang.Win_Infected, Color(95, 127, 0) }
 }
 
 function WIN_BANNER:Paint(w, h)
@@ -32,7 +32,7 @@ local FRAME = {}
 function FRAME:Init()
 	local w, h = ScrW() * 0.5, ScrH() * 0.5
 	self:SetDeleteOnClose(true)
-	self:SetTitle("Round Over!")
+	self:SetTitle(TTT.Lang.Win_Title)
 	self:SetSize(w, h)
 	self:Center()
 

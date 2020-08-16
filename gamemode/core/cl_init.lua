@@ -15,6 +15,11 @@ Log.Info("Loading configuration...")
 include("sh_configuration.lua")
 
 
+-- Load language
+Log.Info("Loading language...")
+include("language/sh_" .. TTT.Config.Language .. ".lua")
+
+
 -- Load libraries
 include("libraries/shared.lua")
 

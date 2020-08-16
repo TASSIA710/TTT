@@ -8,6 +8,11 @@ TTT.Config = {}
 
 
 
+-- General
+TTT.Config.Language = "english" -- Can be one of: english
+
+
+
 -- Database configuration
 TTT.Config.Database = {
 	UseMySQL = true,
