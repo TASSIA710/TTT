@@ -84,6 +84,7 @@ TTT.Config.Weapons = {
 
 -- Weapon replacements
 TTT.Config.WeaponReplacements = {
+	["weapon_ttt_glock"] = "ttt_cw2_p99",
 	["weapon_zm_mac10"] = "ttt_cw2_mac11",
 	["weapon_zm_molotov"] = "ttt_cw2_frag_grenade",
 	["weapon_zm_pistol"] = "ttt_cw2_m1911",
