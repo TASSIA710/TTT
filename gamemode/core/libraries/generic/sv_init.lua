@@ -44,6 +44,10 @@ TTT._WinState = WIN_NONE
 --- Sends a win to all players.
 -- @param win [number] - the win type
 function TTT.SendWin(win)
+	if TTT.Config.PreventWin then
+		Log.Debug("Received SendWin command, but PreventWin is enabled.")
+		return
+	end
 	SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthPostround)
 	TTT.SetRoundState(ROUND_POST)
 	net.Start("TTT:SendWin")

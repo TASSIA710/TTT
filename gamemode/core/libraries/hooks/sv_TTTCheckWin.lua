@@ -6,12 +6,6 @@
 
 function GM:TTTCheckWin()
 	Log.Debug("Checking for win...")
-
-	if TTT.Config.PreventWin then
-		Log.Debug("PreventWin is enabled, aborting.")
-		return false
-	end
-
 	local allTraitor = true
 	local allInnocent = true
 	local allSerialKiller = true
