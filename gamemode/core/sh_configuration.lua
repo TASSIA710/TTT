@@ -53,7 +53,21 @@ TTT.Config.Weapons = {
 	"cw_l115", -- Ammo: .338 Lapua
 	"cw_mp5", -- Ammo: 9x19MM
 	"cw_mr96", -- Ammo: .44 Magnum
-	"cw_smoke_grenade" -- Ammo: none
+	"cw_smoke_grenade", -- Ammo: none
+	"cw_g36c", -- Ammo: 5.56x45MM
+	"cw_l85a2", -- Ammo: 5.56x45MM
+	"cw_m249_official", -- Ammo: 5.56x45MM
+	"cw_m14", -- Ammo: 7.62x51MM
+	"cw_scarh", -- Ammo: 7.62x51MM
+	"cw_p99", -- Ammo: 9x19MM
+	"cw_shorty", -- Ammo: 12 Gauge
+	"cw_m3super90", -- Ammo: 12 Gauge
+	"cw_ump45", -- Ammo: .45 ACP
+	"cw_m1911", -- Ammo: .45 ACP
+	"cw_mac11", -- Ammo: 9x17MM
+	"cw_vss", -- Ammo: 9x39MM
+	"cw_fiveseven", -- Ammo: 5.7x28MM
+	"cw_makarov" -- Ammo: 9x18MM
 }
 
 
@@ -66,5 +80,9 @@ TTT.Config.Ammunitions = {
 	["7.62x51MM"] = "cw_ammo_762x51",
 	[".338 Lapua"] = "cw_ammo_338lapua",
 	["9x19MM"] = "cw_ammo_9x19",
-	[".44 Magnum"] = "cw_ammo_44magnum"
+	[".44 Magnum"] = "cw_ammo_44magnum",
+	["12 Gauge"] = "cw_ammo_12gauge",
+	[".45 ACP"] = "cw_ammo_45acp",
+	["9x17MM"] = "cw_ammo_9x17",
+	["9x39MM"] = "cw_ammo_9x39"
 }
