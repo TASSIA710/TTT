@@ -13,6 +13,29 @@ include("cl_vgui_winscreen.lua")
 
 
 
+
+
+-- >> Show Message
+TTT.Derma._Messages = {}
+
+net.Receive("TTT:ShowMessage", function(len)
+	local data = {
+		Text = net.ReadString(),
+		Color = net.ReadColor(),
+		Duration = net.ReadUInt(8),
+		Start = CurTime()
+	}
+	table.insert(TTT.Derma._Messages, data)
+	timer.Simple(data.Duration, function()
+		table.RemoveByValue(TTT.Derma._Messages, data)
+	end)
+end)
+-- >> Show Message
+
+
+
+
+
 -- >> Win Screen
 TTT.Derma._WinScreenOpen = false
 

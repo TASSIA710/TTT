@@ -14,7 +14,7 @@ surface.CreateFont("TTTHUD", {
 surface.CreateFont("TTTHUD2", {
 		font = "Roboto",
 		size = ScrH() / 51,
-		weight = 500,
+		weight = 300,
 		bold = false
 })
 surface.CreateFont("TTTHUDSub", {
@@ -133,6 +133,37 @@ end
 
 
 
+function TTT.HUD.DrawNotification(index, text, color, progress)
+	progress = progress or 100
+
+	-- Check size
+	surface.SetFont("TTTHUD2")
+	local tw, th = surface.GetTextSize(text)
+	local outer_margin = 48
+	local inner_margin = 8
+	local paddingX = 16
+	local paddingY = 8
+
+	local w, h = tw + paddingX * 2, th + paddingY * 2
+	local x, y = ScrW() - outer_margin - w, outer_margin + (h + inner_margin) * index
+
+	-- Shadow
+	surface.SetDrawColor(0, 0, 0, 127)
+	surface.DrawRect(x - 1, y - 1, w + 2, h + 2)
+
+	-- Background
+	surface.SetDrawColor(63, 63, 63, 255)
+	surface.DrawRect(x, y, w, h)
+
+	-- Draw text
+	draw.SimpleText(text, "TTTHUD2", x + (w * 0.5), y + (h * 0.5), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+	surface.SetDrawColor(color.r, color.g, color.b, 195)
+	local wshift = w * progress
+	surface.DrawRect(x + wshift, y + h - 3, w - wshift + 1, 3)
+end
+
+
+
 local roles = {
 	[ROLE_FALLBACK] = { TTT.Lang.HUD_Role_Fallback, Color(0, 0, 0) },
 	[ROLE_DEAD] = { TTT.Lang.HUD_Role_Dead, Color(0, 0, 0) },
@@ -175,6 +206,12 @@ return function()
 	if IsValid(wep) and wep:Clip1() ~= -1 then
 		local str = wep:Clip1() .. "/" .. LocalPlayer():GetAmmoCount(wep:GetPrimaryAmmoType())
 		TTT.HUD.DrawRectangle(64 + (8 + 64 * 2) * 2, ScrH() - 64 - 48, 64 * 2 - 8, 48, str, Color(0, 0, 0))
+	end
+
+	-- Draw messages
+	for i, data in ipairs(TTT.Derma._Messages) do
+		local progress = CurTime() - data.Start
+		TTT.HUD.DrawNotification(i - 1, data.Text, data.Color, progress / data.Duration)
 	end
 
 	if TTT.GetRoundState() == ROUND_FALLBACK then
