@@ -232,3 +232,26 @@ function TTT.GetInfectedFilter()
 	-- TODO
 end
 -- >> Recipient Filters
+
+
+
+
+
+-- >> Drop Weapon
+--- Networked, if a player drops their weapon.
+-- @direction SV <-- CL
+util.AddNetworkString("TTT:DropWeapon")
+net.Receive("TTT:DropWeapon", function(len, ply)
+	local wep = ply:GetActiveWeapon()
+	if not IsValid(wep) then return end
+
+	ply:StripWeapon(wep:GetClass())
+	local ent = ents.Create(wep:GetClass())
+	if not IsValid(ent) then return end
+
+	ent:SetPos(ply:GetPos())
+
+	ent:Spawn()
+	ent:PhysWake()
+end)
+-- >> Drop Weapon
