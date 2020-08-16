@@ -13,6 +13,11 @@ TTT.Config.Language = "english" -- Can be one of: english
 
 
 
+-- Debug
+TTT.Config.PreventWin = true
+
+
+
 -- Database configuration
 TTT.Config.Database = {
 	UseMySQL = true,
