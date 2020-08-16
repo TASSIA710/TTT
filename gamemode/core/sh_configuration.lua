@@ -77,6 +77,19 @@ TTT.Config.Weapons = {
 
 
 
+-- Weapon replacements
+TTT.Config.WeaponReplacements = {
+	["weapon_zm_mac10"] = "cw_mac11",
+	["weapon_zm_molotov"] = "cw_frag_grenade",
+	["weapon_zm_pistol"] = "cw_m1911",
+	["weapon_zm_revolver"] = "cw_mr96",
+	["weapon_zm_rifle"] = "cw_l115",
+	["weapon_zm_shotgun"] = "cw_m3super90",
+	["weapon_zm_sledge"] = "cw_m249_official"
+}
+
+
+
 -- Ammunitions
 TTT.Config.Ammunitions = {
 	["5.45x39MM"] = "cw_ammo_545x39",
