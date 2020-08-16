@@ -18,7 +18,6 @@ local win_states = {
 
 function WIN_BANNER:Paint(w, h)
 	local win = TTT._WinState
-	print(TTT._WinState)
 	TTT.HUD.DrawRectangle(0, 0, w, h, win_states[win][1], win_states[win][2])
 end
 

@@ -8,6 +8,21 @@
 
 
 
+-- >> Check Win
+--- Called to check if the current round should end.
+function TTT.CheckWin()
+	if TTT.GetRoundState() ~= ROUND_PLAYING then return end
+	local win = hook.Run("TTTCheckWin")
+	if win then
+		TTT.SendWin(win)
+	end
+end
+-- >> Check Win
+
+
+
+
+
 -- >> Send Win
 --- Networked if the round is over.
 -- @direction SV --> CL
@@ -36,7 +51,14 @@ end
 function TTT.StartRound()
 	SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthPrephase)
 	TTT.SetRoundState(ROUND_WARMUP)
-	-- TODO
+
+	for _, ply in pairs(player.GetAll()) do
+		if ply:IsSpectator() then
+			-- TODO
+		else
+			ply:Spawn()
+		end
+	end
 end
 -- >> Start Round
 
@@ -51,7 +73,10 @@ end
 function TTT.CancelRound()
 	SetGlobalFloat("TTT:RoundEnd", 0)
 	TTT.SetRoundState(ROUND_WAITING)
-	-- TODO
+	for _, ply in pairs(player.GetAll()) do
+		ply:StripWeapons()
+		ply:Spectate(OBS_MODE_ROAMING)
+	end
 end
 -- >> Cancel Round
 

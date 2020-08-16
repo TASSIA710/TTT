@@ -7,9 +7,9 @@
 function GM:TTTShouldRoundStart()
 	local count = 0
 	for _, ply in pairs(player.GetAll()) do
-		if not ply:IsSpectator() then
-			count = count + 1
-		end
+		if ply._AboutToDisconnect then continue end
+		if ply:IsSpectator() then continue end
+		count = count + 1
 	end
 	return count >= TTT.Config.MinPlayers
 end
