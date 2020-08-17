@@ -130,7 +130,10 @@ TTT.Config.PreventWin = false
 -- Plugins
 TTT.Config.Plugins = {}
 
-
+-- Oxygen plugin
+TTT.Config.Plugins["Oxygen"] = {}
+TTT.Config.Plugins["Oxygen"].LosePerSecond = 10
+TTT.Config.Plugins["Oxygen"].GainPerSecond = 5
 
 -- Slow Motion plugin
 TTT.Config.Plugins["Slow Motion"] = {}

@@ -6,9 +6,6 @@
 
 util.AddNetworkString("TTT:Plugin:Oxygen:ToggleDrowning")
 
-local OXYGEN_LOSE_PER_SECOND = 10
-local OXYGEN_GAIN_PER_SECOND = 5
-
 hook.Add("OnEntityWaterLevelChanged", "TTT:Plugin:Oxygen", function(ent, old, new)
 	if not ent:IsPlayer() then return end
 	if old ~= 3 and new == 3 then
@@ -20,7 +17,7 @@ hook.Add("OnEntityWaterLevelChanged", "TTT:Plugin:Oxygen", function(ent, old, ne
 		-- Load variables
 		ent._Drowning = true
 		if ent._Oxygen then
-			ent._Oxygen = math.min(ent._Oxygen + (CurTime() - ent._DrownStart) * OXYGEN_GAIN_PER_SECOND, 100)
+			ent._Oxygen = math.min(ent._Oxygen + (CurTime() - ent._DrownStart) * TTT.Config.Plugins["Oxygen"].GainPerSecond, 100)
 		else
 			ent._Oxygen = 100
 		end
@@ -29,7 +26,7 @@ hook.Add("OnEntityWaterLevelChanged", "TTT:Plugin:Oxygen", function(ent, old, ne
 		-- Create timer
 		-- We subtact one second from the timer duration, so that the damage
 		-- timer will start immediately
-		timer.Create("PlayerDrown:" .. ent:UserID(), (ent._Oxygen / OXYGEN_LOSE_PER_SECOND) - 1, 1, function()
+		timer.Create("PlayerDrown:" .. ent:UserID(), (ent._Oxygen / TTT.Config.Plugins["Oxygen"].LosePerSecond) - 1, 1, function()
 			ent._DrownDamageIndex = 1
 			timer.Create("PlayerDrown:" .. ent:UserID(), 1, 100, function()
 				ent:TakeDamage(ent._DrownDamageIndex, nil, nil)
@@ -52,7 +49,7 @@ hook.Add("OnEntityWaterLevelChanged", "TTT:Plugin:Oxygen", function(ent, old, ne
 
 		-- Load variables
 		ent._Drowning = false
-		ent._Oxygen = math.max(ent._Oxygen - (CurTime() - ent._DrownStart) * OXYGEN_LOSE_PER_SECOND, 0)
+		ent._Oxygen = math.max(ent._Oxygen - (CurTime() - ent._DrownStart) * TTT.Config.Plugins["Oxygen"].LosePerSecond, 0)
 		ent._DrownStart = CurTime()
 
 		-- Remove timer
