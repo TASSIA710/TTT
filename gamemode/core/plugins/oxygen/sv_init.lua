@@ -9,6 +9,7 @@ util.AddNetworkString("TTT:Plugin:Oxygen:ToggleDrowning")
 hook.Add("OnEntityWaterLevelChanged", "TTT:Plugin:Oxygen", function(ent, old, new)
 	if not ent:IsPlayer() then return end
 	if old ~= 3 and new == 3 then
+		if not ent:IsAlive() then return end
 		-- Send net message
 		net.Start("TTT:Plugin:Oxygen:ToggleDrowning")
 		net.WriteBool(true)
