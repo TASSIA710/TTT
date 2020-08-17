@@ -76,11 +76,15 @@ function TTT.Plugins.LoadPlugin(name)
 		AddCSLuaFile(abs_path .. "/shared.lua")
 		include(abs_path .. "/shared.lua")
 	end
-	if file.Exists(abs_path .. "/sv_init.lua", "LUA") then
+	if file.Exists(abs_path .. "/sv_init.lua", "LUA") and SERVER then
 		include(abs_path .. "/sv_init.lua")
 	end
 	if file.Exists(abs_path .. "/cl_init.lua", "LUA") then
-		AddCSLuaFile(abs_path .. "/cl_init.lua")
+		if SERVER then
+			AddCSLuaFile(abs_path .. "/cl_init.lua")
+		else
+			include(abs_path .. "/cl_init.lua")
+		end
 	end
 	Log.Debug("- " .. meta.Name)
 	return true
