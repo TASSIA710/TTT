@@ -21,28 +21,28 @@ function TTT.Plugins.LoadPlugin(name)
 	-- local rel_path = "../../plugins/" .. name TODO: Is this still needed?
 
 	-- Check meta file
-	if not file.Exists(abs_path .. "/meta.lua", "LUA") then
-		Log.Warning("Failed to load plugin '" .. name .. "': no meta.lua file found.")
+	if not file.Exists(abs_path .. "/__meta.lua", "LUA") then
+		Log.Warning("Failed to load plugin '" .. name .. "': no __meta.lua file found.")
 		return false
 	end
 
 	-- Load meta
-	local meta = include(abs_path .. "/meta.lua")
+	local meta = include(abs_path .. "/__meta.lua")
 
 	-- Download meta
 	if SERVER then
-		AddCSLuaFile(abs_path .. "/meta.lua")
+		AddCSLuaFile(abs_path .. "/__meta.lua")
 	end
 
 	-- Check ID
 	if not meta.ID then
-		Log.Warning("Failed to load plugin '" .. name .. "': ID not defined in meta.lua")
+		Log.Warning("Failed to load plugin '" .. name .. "': ID not defined in __meta.lua")
 		return false
 	end
 
 	-- Check name
 	if not meta.Name then
-		Log.Warning("Failed to load plugin '" .. name .. "': Name not defined in meta.lua")
+		Log.Warning("Failed to load plugin '" .. name .. "': Name not defined in __meta.lua")
 		return false
 	end
 
