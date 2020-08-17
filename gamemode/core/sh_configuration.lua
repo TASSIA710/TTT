@@ -53,6 +53,21 @@ TTT.Config.MinInfected = 5 -- How many innocents are required for an infected pl
 
 
 
+-- Damage Scales
+TTT.Config.DamageScales = {
+	[HITGROUP_GENERIC] = 1,
+	[HITGROUP_HEAD] = 2,
+	[HITGROUP_CHEST] = 1.5,
+	[HITGROUP_STOMACH] = 1,
+	[HITGROUP_LEFTARM] = 1,
+	[HITGROUP_RIGHTARM] = 1,
+	[HITGROUP_LEFTLEG] = 1,
+	[HITGROUP_RIGHTLEG] = 1,
+	[HITGROUP_GEAR] = 1
+}
+
+
+
 -- Weapons
 TTT.Config.Weapons = {
 	"ttt_cw2_ak74", -- Ammo: 5.45x39MM
