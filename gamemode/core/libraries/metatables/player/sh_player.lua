@@ -23,6 +23,12 @@ end
 
 
 -- >> Role
+--- Returns the role table of this player.
+-- @returns role [table] - data about this players role
+function PLAYER:Role()
+	return TTT.Roles[self._Role]
+end
+
 --- Returns the role of this player.
 -- @returns role [number] - the role
 function PLAYER:GetRole()

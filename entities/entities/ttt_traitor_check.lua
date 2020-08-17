@@ -24,9 +24,10 @@ function ENT:CountTraitors()
 	local maxs = self:LocalToWorld(self:OBBMaxs())
 	local traitors = 0
 	for _, ply in pairs(player.GetAll()) do
-		if IsValid(ply) and ply:IsTraitor() and ply:IsAlive() then
+		if IsValid(ply) and ply:IsAlive() then
 			local pos = ply:GetPos()
-			if VectorInside(pos, mins, maxs) then
+			local role = ply:Role()
+			if VectorInside(pos, mins, maxs) and role.TriggersTraitorCheck then
 				traitors = traitors + 1
 			end
 		end

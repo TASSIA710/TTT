@@ -164,21 +164,6 @@ end
 
 
 
-local roles = {
-	[ROLE_FALLBACK] = { TTT.Lang.HUD_Role_Fallback, Color(0, 0, 0) },
-	[ROLE_DEAD] = { TTT.Lang.HUD_Role_Dead, Color(0, 0, 0) },
-	[ROLE_SPECTATOR] = { TTT.Lang.HUD_Role_Spectator, Color(195, 127, 0) },
-	[ROLE_INNOCENT] = { TTT.Lang.HUD_Role_Innocent, Color(0, 195, 0) },
-	[ROLE_TRAITOR] = { TTT.Lang.HUD_Role_Traitor, Color(195, 0, 0) },
-	[ROLE_DETECTIVE] = { TTT.Lang.HUD_Role_Detective, Color(0, 0, 195) },
-	[ROLE_PHOENIX] = { TTT.Lang.HUD_Role_Phoenix, Color(0, 127, 195) },
-	[ROLE_JESTER] = { TTT.Lang.HUD_Role_Jester, Color(127, 127, 0) },
-	[ROLE_SERIAL_KILLER] = { TTT.Lang.HUD_Role_SerialKiller, Color(63, 0, 0) },
-	[ROLE_INFECTED] = { TTT.Lang.HUD_Role_Infected, Color(95, 127, 0) }
-}
-
-
-
 local function timeLeft(to)
 	local diff = to - CurTime()
 	if diff < 0 then diff = -diff end
@@ -238,7 +223,7 @@ return function()
 		return
 	end
 
-	local role = LocalPlayer():GetRole()
-	TTT.HUD.DrawRectangle(64, ScrH() - 64 - 48 - 48 - 16, 64 * 4, 48, roles[role][1], roles[role][2])
+	local role = LocalPlayer():Role()
+	TTT.HUD.DrawRectangle(64, ScrH() - 64 - 48 - 48 - 16, 64 * 4, 48, role.HudText, role.HudColor)
 	TTT.HUD.DrawRectangleSub(64 + 8 + 64 * 2, ScrH() - 64 - 48, 64 * 2 - 8, 48, formatTime(), TTT.Lang.HUD_State_Haste, Color(0, 0, 0))
 end
