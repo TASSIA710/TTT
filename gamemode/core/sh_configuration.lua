@@ -123,4 +123,15 @@ TTT.Config.EntityReplacements = {
 
 
 -- Debug
-TTT.Config.PreventWin = true
+TTT.Config.PreventWin = false
+
+
+
+-- Plugins
+TTT.Config.Plugins = {}
+
+
+
+-- Slow Motion plugin
+TTT.Config.Plugins["Slow Motion"] = {}
+TTT.Config.Plugins["Slow Motion"].Duration = 1
