@@ -72,7 +72,8 @@ end
 
 
 function ENT:TraitorUse(ply)
-	if not IsValid(ply) or not ply:IsAlive() or not ply:IsTraitor() then return false end
+	if not IsValid(ply) or not ply:IsAlive() then return false end
+	if not ply:Role().CanUseTraitorButton then return false end
 	if not self:IsUsable() then return false end
 	if self:GetPos():Distance(ply:GetPos()) > self:GetUsableRange() then return false end
 	local use, message = hook.Run("TTTCanUseTraitorButton", self, ply)
@@ -104,7 +105,7 @@ end
 
 concommand.Add("ttt_use_tbutton", function(ply, cmd, args)
 	if #args ~= 1 then return end
-	if IsValid(ply) and ply:IsTraitor() and ply:IsAlive() then
+	if IsValid(ply) and ply:Role().CanUseTraitorButton and ply:IsAlive() then
 		local idx = tonumber(args[1])
 		if not idx then return end
 		local ent = Entity(idx)

@@ -12,8 +12,10 @@ local libraries = {
 	"generic",
 	"hooks",
 	"hud",
+	"items",
 	"metatables",
 	"plugins",
+	"roles",
 	"scoreboard"
 }
 

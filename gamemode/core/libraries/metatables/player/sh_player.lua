@@ -23,6 +23,12 @@ end
 
 
 -- >> Role
+--- Returns the role table of this player.
+-- @returns role [table] - data about this players role
+function PLAYER:Role()
+	return TTT.Roles[self._Role]
+end
+
 --- Returns the role of this player.
 -- @returns role [number] - the role
 function PLAYER:GetRole()
@@ -94,6 +100,6 @@ end
 -- Will return 0 if the player is innocent or spectator.
 -- @returns credits [number] - the amount of credits
 function PLAYER:GetCredits()
-	return self._Credits
+	return self._Credits or 0
 end
 -- >> Credits

@@ -17,10 +17,8 @@ function GM:PlayerButtonDown(ply, btn)
 
 	if btn == KEY_F1 then
 		if TTT.GetRoundState() == ROUND_PLAYING then
-			if LocalPlayer():IsTraitor() then
-				TTT.Derma.ShowTraitorShop()
-			elseif LocalPlayer():IsDetective() then
-			end
+			local role = LocalPlayer():Role()
+			if role.BuyMenu then role.BuyMenu() end
 		else
 			TTT.Derma.ShowWinScreen()
 		end
