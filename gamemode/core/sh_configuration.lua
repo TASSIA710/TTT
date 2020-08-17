@@ -123,4 +123,4 @@ TTT.Config.EntityReplacements = {
 
 
 -- Debug
-TTT.Config.PreventWin = true
+TTT.Config.PreventWin = false
