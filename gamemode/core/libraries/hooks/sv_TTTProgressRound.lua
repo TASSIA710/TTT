@@ -27,6 +27,11 @@ function GM:TTTProgressRound()
 		for role, plys in pairs(roles) do
 			if not plys then continue end
 			for _, ply in pairs(plys) do
+				if role == ROLE_TRAITOR then
+					ply:SetCredits(TTT.Config.TraitorCreditsStarting)
+				elseif role == ROLE_DETECTIVE then
+					ply:SetCredits(TTT.Config.DetectiveCreditsStarting)
+				end
 				ply:SetRole(role)
 			end
 		end

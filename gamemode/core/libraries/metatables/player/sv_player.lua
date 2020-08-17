@@ -24,3 +24,22 @@ function PLAYER:SetRole(role)
 	net.Send(self)
 end
 -- >> Role
+
+
+
+
+
+-- >> Credits
+--- Networked, if the amount of credits for a player changes.
+-- @direction SV --> CL
+util.AddNetworkString("TTT:SetCredits")
+
+--- Sets the amount of credits this player has.
+-- @param amount [number] - amount of credits
+function PLAYER:SetCredits(amount)
+	self._Credits = amount
+	net.Start("TTT:SetCredits")
+	net.WriteUInt(amount, 8)
+	net.Send(self)
+end
+-- >> Credits

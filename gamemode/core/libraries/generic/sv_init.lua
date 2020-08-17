@@ -70,6 +70,7 @@ function TTT.StartRound()
 	TTT.SetRoundState(ROUND_WARMUP)
 
 	for _, ply in pairs(player.GetAll()) do
+		ply:SetCredits(0)
 		if ply:IsSpectator() then
 			-- TODO
 		else
@@ -91,6 +92,7 @@ function TTT.CancelRound()
 	SetGlobalFloat("TTT:RoundEnd", 0)
 	TTT.SetRoundState(ROUND_WAITING)
 	for _, ply in pairs(player.GetAll()) do
+		ply:SetCredits(0)
 		ply:StripAmmo()
 		ply:StripWeapons()
 		ply:Spectate(OBS_MODE_ROAMING)

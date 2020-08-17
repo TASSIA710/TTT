@@ -13,11 +13,6 @@ TTT.Config.Language = "english" -- Can be one of: english
 
 
 
--- Debug
-TTT.Config.PreventWin = true
-
-
-
 -- Database configuration
 TTT.Config.Database = {
 	UseMySQL = true,
@@ -27,6 +22,12 @@ TTT.Config.Database = {
 	Password = "password",
 	Database = "database"
 }
+
+
+
+-- Credits
+TTT.Config.TraitorCreditsStarting = 2
+TTT.Config.DetectiveCreditsStarting = 1
 
 
 
@@ -118,3 +119,8 @@ TTT.Config.EntityReplacements = {
 	["weapon_zm_shotgun"] = "ttt_cw2_m3super90",
 	["weapon_zm_sledge"] = "ttt_cw2_m249_official"
 }
+
+
+
+-- Debug
+TTT.Config.PreventWin = true

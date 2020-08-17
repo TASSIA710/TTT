@@ -84,3 +84,16 @@ function PLAYER:IsInfected()
 	return (self._Role or ROLE_FALLBACK) == ROLE_INFECTED
 end
 -- >> Role
+
+
+
+
+
+-- >> Credits
+--- Returns the amount of credits this player has.
+-- Will return 0 if the player is innocent or spectator.
+-- @returns credits [number] - the amount of credits
+function PLAYER:GetCredits()
+	return self._Credits
+end
+-- >> Credits

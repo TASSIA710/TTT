@@ -15,3 +15,13 @@ net.Receive("TTT:SetRole", function(len)
 	LocalPlayer()._Role = net.ReadUInt(8)
 end)
 -- >> Role
+
+
+
+
+
+-- >> Credits
+net.Receive("TTT:SetCredits", function(len)
+	LocalPlayer()._Credits = net.ReadUInt(8)
+end)
+-- >> Credits
