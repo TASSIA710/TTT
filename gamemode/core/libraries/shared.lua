@@ -14,6 +14,7 @@ local libraries = {
 	"hud",
 	"metatables",
 	"plugins",
+	"roles",
 	"scoreboard"
 }
 
