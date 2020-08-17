@@ -104,7 +104,7 @@ function TTT.HUD.DrawRectangleBar(x, y, w, h, text, value, color)
 
 	-- Background
 	surface.SetDrawColor(color.r, color.g, color.b, 195)
-	surface.DrawRect(x, y, w, h)
+	surface.DrawRect(x, y, w * value, h)
 
 	-- Border
 	surface.SetDrawColor(255, 255, 255, 127)
