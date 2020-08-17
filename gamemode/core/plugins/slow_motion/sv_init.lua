@@ -5,21 +5,12 @@
 --]]
 
 -- Download content
-resource.AddFile("sound/terrortown/plugins/slow_motion/slow_motion_end.wav")
-resource.AddFile("sound/terrortown/plugins/slow_motion/slow_motion_start.wav")
-
---- Networked to start the end-of-round slow motion effects
--- @direction SV --> CL
-util.AddNetworkString("TTT:Plugin:SlowMotion:Start")
+resource.AddSingleFile("sound/terrortown/plugins/slow_motion/slow_motion_end.wav")
+resource.AddSingleFile("sound/terrortown/plugins/slow_motion/slow_motion_start.wav")
 
 
 
 hook.Add("TTT:RoundOver", "TTT:Plugin:SlowMotion", function(result)
-
-	-- Send to clients
-	net.Start("TTT:Plugin:SlowMotion:Start")
-	net.WriteInt(result, 8)
-	net.Broadcast()
 
 	-- Slow motion!
 	local duration = TTT.Config.Plugins["Slow Motion"].Duration

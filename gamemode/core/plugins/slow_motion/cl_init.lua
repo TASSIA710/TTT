@@ -8,12 +8,11 @@ local mt = 0
 local drawSlowMotion = false
 local ColorConstTable, ColorModifyTable, BloomTable
 
-local soundStart = Sound("terrortown/plugins/slow_motion/slow_motion_start.wav")
-local soundEnd = Sound("terrortown/plugins/slow_motion/slow_motion_end.wav")
+local soundStart = "terrortown/plugins/slow_motion/slow_motion_start.wav"
+local soundEnd = "terrortown/plugins/slow_motion/slow_motion_end.wav"
 
 
-net.Receive("TTT:Plugin:SlowMotion:Start", function()
-	local result = net.ReadInt(8)
+hook.Add("TTT:RoundOver", "TTT:Plugin:SlowMotion", function(result)
 	surface.PlaySound(soundStart)
 
 	local slowtime = TTT.Config.Plugins["Slow Motion"].Duration
