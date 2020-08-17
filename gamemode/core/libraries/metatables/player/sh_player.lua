@@ -100,6 +100,6 @@ end
 -- Will return 0 if the player is innocent or spectator.
 -- @returns credits [number] - the amount of credits
 function PLAYER:GetCredits()
-	return self._Credits
+	return self._Credits or 0
 end
 -- >> Credits
