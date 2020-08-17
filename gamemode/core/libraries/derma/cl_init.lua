@@ -58,7 +58,7 @@ end
 --- Opens the traitor shop.
 function TTT.Derma.ShowTraitorShop()
 	if TTT.Derma._MenuOpen then return end
-	if TTT._WinState == WIN_NONE then return end
+	if TTT.GetRoundState() ~= ROUND_PLAYING and TTT.GetRoundState() ~= ROUND_POST then return end
 	TTT.Derma._MenuOpen = true
 
 	local frame = vgui.Create("TTT:TraitorShop")

@@ -19,6 +19,7 @@ function FRAME:SetItem(item)
 	self._ButtonBuy:SetWidth(x + 32)
 	self._ButtonBuy:SetHeight(32)
 	self._ButtonBuy.DoClick = function()
+		self._ButtonBuy:SetEnabled(false)
 		net.Start("TTT:BuyItem")
 		net.WriteUInt(SHOP_TRAITOR, 8)
 		net.WriteString(item.ID)
@@ -31,6 +32,10 @@ function FRAME:SetItem(item)
 	else
 		self._ButtonBuy:SetEnabled(true)
 		self._ButtonBuy:SetTooltip(nil)
+	end
+	if item.IsPurchased(LocalPlayer()) then
+		self._ButtonBuy:SetEnabled(false)
+		self._ButtonBuy:SetTooltip("You have already purchased this item.")
 	end
 end
 

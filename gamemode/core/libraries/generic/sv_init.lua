@@ -68,12 +68,19 @@ end
 
 
 -- >> Start Round
+--- Networked, if a new round starts.
+-- @direction SV --> CL
+util.AddNetworkString("TTT:StartRound")
+
 --- Starts a new round, spawns all eligible players and sets
 -- the round state to `ROUND_WARMUP`.
 function TTT.StartRound()
 	SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthPrephase)
 	TTT.RefreshMap()
 	TTT.SetRoundState(ROUND_WARMUP)
+
+	net.Start("TTT:StartRound")
+	net.Broadcast()
 
 	for _, ply in pairs(player.GetAll()) do
 		ply:SetCredits(0)

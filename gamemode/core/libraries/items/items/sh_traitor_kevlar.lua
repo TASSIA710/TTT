@@ -17,4 +17,12 @@ ITEM.OnBuy = function(ply)
 	Log.Error("Not implemented yet.")
 end
 
+ITEM.OnBuyCS = function()
+	-- TODO
+end
+
+ITEM.IsPurchased = function(ply)
+	return ply._Purchases and ply._Purchases[SHOP_TRAITOR] and ply._Purchases[SHOP_TRAITOR][ITEM.ID]
+end
+
 TTT.Items.RegisterItem(SHOP_TRAITOR, ITEM)

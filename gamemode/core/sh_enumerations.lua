@@ -51,3 +51,4 @@ WIN_INFECTED = 6
 -- SHOP enumeration
 SHOP_TRAITOR = 1
 SHOP_DETECTIVE = 2
+SHOPS = {}

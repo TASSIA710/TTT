@@ -33,3 +33,13 @@ function TTT.GetRoundState()
 	return GetGlobalInt("TTT:RoundState", ROUND_FALLBACK)
 end
 -- >> Round State
+
+
+
+
+
+-- >> Start Round
+net.Receive("TTT:StartRound", function()
+	-- TODO
+end)
+-- >> Start Round

@@ -9,7 +9,7 @@ include("shared.lua")
 
 
 --- Networked if a player buys an item in a shop.
--- @direction SV <-- CL
+-- @direction SV <-> CL
 util.AddNetworkString("TTT:BuyItem")
 
 net.Receive("TTT:BuyItem", function(len, ply)
@@ -27,11 +27,26 @@ net.Receive("TTT:BuyItem", function(len, ply)
 	end
 
 	if ply:GetCredits() < item.Price then
-		Log.Warning(ply, "tried buy item", item.Name, "but doesn't have enough credits.")
+		Log.Warning(ply, "tried to buy item", item.Name, "but doesn't have enough credits.")
+		return
+	end
+
+	if item.IsPurchased(ply) then
+		Log.Warning(ply, "tried to buy item", item.Name, "but item is already purchased.")
 		return
 	end
 
 	Log.Debug(ply, "bought item", item.Name)
 	ply:SetCredits(ply:GetCredits() - item.Price)
+
+	ply._Purchases = ply._Purchases or {}
+	ply._Purchases[shop] = ply._Purchases[shop] or {}
+	ply._Purchases[shop][itemStr] = true
+
 	item.OnBuy(ply)
+
+	net.Start("TTT:BuyItem")
+	net.WriteUInt(shop, 8)
+	net.WriteString(itemStr)
+	net.Send(ply)
 end)
