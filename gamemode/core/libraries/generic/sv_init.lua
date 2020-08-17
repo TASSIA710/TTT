@@ -52,6 +52,7 @@ function TTT.SendWin(win)
 
 	--- Called when a round ends.
 	-- @param win [number] - the win type
+	-- @realm shared
 	hook.Run("TTT:RoundOver", win)
 
 	TTT.SetRoundState(ROUND_POST)
