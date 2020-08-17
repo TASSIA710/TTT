@@ -25,3 +25,13 @@ net.Receive("TTT:SetCredits", function(len)
 	LocalPlayer()._Credits = net.ReadUInt(8)
 end)
 -- >> Credits
+
+
+
+
+
+-- >> Credits
+net.Receive("TTT:SetKarma", function(len)
+	LocalPlayer()._Karma = net.ReadUInt(16)
+end)
+-- >> Credits

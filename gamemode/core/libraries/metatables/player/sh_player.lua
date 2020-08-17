@@ -103,3 +103,15 @@ function PLAYER:GetCredits()
 	return self._Credits or 0
 end
 -- >> Credits
+
+
+
+
+
+-- >> Karma
+--- Returns the amount of karma this player has.
+-- @returns karma [number] - karmna
+function PLAYER:GetKarma()
+	return self._Karma or 0
+end
+-- >> Karma

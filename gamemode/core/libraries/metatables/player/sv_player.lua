@@ -43,3 +43,22 @@ function PLAYER:SetCredits(amount)
 	net.Send(self)
 end
 -- >> Credits
+
+
+
+
+
+-- >> Karma
+--- Networked, if the karma for a player changes.
+-- @direction SV --> CL
+util.AddNetworkString("TTT:SetKarma")
+
+--- Sets the amount of karma this player has.
+-- @param karma [number] - karma
+function PLAYER:SetKarma(karma)
+	self._Karma = karma
+	net.Start("TTT:SetKarma")
+	net.WriteUInt(karma, 16)
+	net.Send(self)
+end
+-- >> Karma
