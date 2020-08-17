@@ -84,6 +84,7 @@ TTT.Config.Weapons = {
 
 -- Weapon replacements
 TTT.Config.WeaponReplacements = {
+	["item_ammo_357_ttt"] = "cw_ammo_50ae",
 	["item_ammo_pistol_ttt"] = "cw_ammo_45acp",
 	["item_ammo_revolver_ttt"] = "cw_ammo_44magnum",
 	["item_ammo_smg1_ttt"] = "cw_ammo_9x17",
