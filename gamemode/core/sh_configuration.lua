@@ -82,8 +82,25 @@ TTT.Config.Weapons = {
 
 
 
--- Weapon replacements
-TTT.Config.WeaponReplacements = {
+-- Ammunitions
+TTT.Config.Ammunitions = {
+	["5.45x39MM"] = "cw_ammo_545x39",
+	["5.56x45MM"] = "cw_ammo_556x45",
+	[".50 AE"] = "cw_ammo_50ae",
+	["7.62x51MM"] = "cw_ammo_762x51",
+	[".338 Lapua"] = "cw_ammo_338lapua",
+	["9x19MM"] = "cw_ammo_9x19",
+	[".44 Magnum"] = "cw_ammo_44magnum",
+	["12 Gauge"] = "cw_ammo_12gauge",
+	[".45 ACP"] = "cw_ammo_45acp",
+	["9x17MM"] = "cw_ammo_9x17",
+	["9x39MM"] = "cw_ammo_9x39"
+}
+
+
+
+-- Entity replacements
+TTT.Config.EntityReplacements = {
 	["item_ammo_357_ttt"] = "cw_ammo_50ae",
 	["item_ammo_pistol_ttt"] = "cw_ammo_45acp",
 	["item_ammo_revolver_ttt"] = "cw_ammo_44magnum",
@@ -100,21 +117,4 @@ TTT.Config.WeaponReplacements = {
 	["weapon_zm_rifle"] = "ttt_cw2_l115",
 	["weapon_zm_shotgun"] = "ttt_cw2_m3super90",
 	["weapon_zm_sledge"] = "ttt_cw2_m249_official"
-}
-
-
-
--- Ammunitions
-TTT.Config.Ammunitions = {
-	["5.45x39MM"] = "cw_ammo_545x39",
-	["5.56x45MM"] = "cw_ammo_556x45",
-	[".50 AE"] = "cw_ammo_50ae",
-	["7.62x51MM"] = "cw_ammo_762x51",
-	[".338 Lapua"] = "cw_ammo_338lapua",
-	["9x19MM"] = "cw_ammo_9x19",
-	[".44 Magnum"] = "cw_ammo_44magnum",
-	["12 Gauge"] = "cw_ammo_12gauge",
-	[".45 ACP"] = "cw_ammo_45acp",
-	["9x17MM"] = "cw_ammo_9x17",
-	["9x39MM"] = "cw_ammo_9x39"
 }

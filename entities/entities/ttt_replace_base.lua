@@ -8,7 +8,7 @@ ENT.Type = "point"
 ENT.Base = "base_point"
 
 function ENT:Initialize()
-	local ent = ents.Create(TTT.Config.WeaponReplacements[self:GetClass()])
+	local ent = ents.Create(TTT.Config.EntityReplacements[self:GetClass()])
 	if IsValid(ent) then
 		ent:SetPos(self:GetPos())
 		ent:SetAngles(self:GetAngles())
