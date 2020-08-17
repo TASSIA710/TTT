@@ -35,7 +35,7 @@ SWEP.SpeedDec = 5
 
 SWEP.NoFreeAim = true
 
-SWEP.Slot = 4
+SWEP.Slot = 2
 SWEP.SlotPos = 0
 SWEP.NormalHoldType = "grenade"
 SWEP.RunHoldType = "normal"

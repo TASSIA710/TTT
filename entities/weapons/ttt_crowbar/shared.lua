@@ -6,7 +6,7 @@
 
 SWEP.Weight = 5
 SWEP.PrintName = "Crowbar"
-SWEP.Slot = 0
+SWEP.Slot = 3
 SWEP.SlotPos = 1
 SWEP.DrawAmmo = false
 SWEP.DrawCrosshair = false

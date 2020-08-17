@@ -89,7 +89,7 @@ SWEP.Sounds = {shot = {{time = 0.5, sound = "CW_L96_BOLTUP"},
 
 SWEP.SpeedDec = 50
 
-SWEP.Slot = 3
+SWEP.Slot = 0
 SWEP.SlotPos = 0
 SWEP.NormalHoldType = "ar2"
 SWEP.RunHoldType = "passive"

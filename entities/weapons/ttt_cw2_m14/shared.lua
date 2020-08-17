@@ -130,7 +130,7 @@ SWEP.Sounds = {M14_Reload = {{time = 0.6, sound = "CW_FOLEY_LIGHT"},
 
 SWEP.SpeedDec = 40
 
-SWEP.Slot = 3
+SWEP.Slot = 0
 SWEP.SlotPos = 0
 SWEP.NormalHoldType = "ar2"
 SWEP.RunHoldType = "passive"

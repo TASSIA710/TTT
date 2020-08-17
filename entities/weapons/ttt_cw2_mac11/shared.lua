@@ -113,7 +113,7 @@ SWEP.Sounds = {draw = {{time = 0, sound = "CW_FOLEY_MEDIUM"}},
 
 SWEP.SpeedDec = 10
 
-SWEP.Slot = 3
+SWEP.Slot = 1
 SWEP.SlotPos = 0
 SWEP.NormalHoldType = "revolver"
 SWEP.RunHoldType = "normal"
