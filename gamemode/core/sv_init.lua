@@ -29,5 +29,5 @@ include("libraries/shared.lua")
 
 
 -- Load plugins
-AddCSLuaFile("plugins/cl_init.lua")
-include("plugins/sv_init.lua")
+AddCSLuaFile("plugins/shared.lua")
+include("plugins/shared.lua")

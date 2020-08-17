@@ -13,6 +13,7 @@ local libraries = {
 	"hooks",
 	"hud",
 	"metatables",
+	"plugins",
 	"scoreboard"
 }
 

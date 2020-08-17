@@ -25,4 +25,4 @@ include("libraries/shared.lua")
 
 
 -- Load plugins
-include("plugins/cl_init.lua")
+include("plugins/shared.lua")
