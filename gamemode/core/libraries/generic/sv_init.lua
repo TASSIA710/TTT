@@ -49,6 +49,11 @@ function TTT.SendWin(win)
 		return
 	end
 	SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthPostround)
+
+	--- Called when a round ends.
+	-- @param win [number] - the win type
+	hook.Run("TTT:RoundOver", win)
+
 	TTT.SetRoundState(ROUND_POST)
 	net.Start("TTT:SendWin")
 	net.WriteUInt(win, 8)
