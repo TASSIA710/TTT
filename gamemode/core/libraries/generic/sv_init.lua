@@ -84,6 +84,7 @@ function TTT.StartRound()
 
 	for _, ply in pairs(player.GetAll()) do
 		ply:SetCredits(0)
+		ply._Purchases = {}
 		if ply:IsSpectator() then
 			-- TODO
 		else

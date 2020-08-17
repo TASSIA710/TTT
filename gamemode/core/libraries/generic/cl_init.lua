@@ -40,6 +40,6 @@ end
 
 -- >> Start Round
 net.Receive("TTT:StartRound", function()
-	-- TODO
+	LocalPlayer()._Purchases = {}
 end)
 -- >> Start Round
