@@ -12,7 +12,7 @@ ENT.Credits = 0
 function ENT:KeyValue(key, value)
 	if key == "OnSuccess" or key == "OnFail" then
 		self:StoreOutput(key, value)
-	else
+	elseif key == "credits" then
 		if not tonumber(value) then
 			Log.Warning(self, "has bad 'credits' setting.")
 		else
