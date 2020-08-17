@@ -26,6 +26,7 @@ net.Receive("TTT:Plugin:Oxygen:ToggleDrowning", function()
 end)
 
 hook.Add("HUDPaint", "TTT:Plugin:Oxygen", function(ent, old, new)
+	if not LocalPlayer():IsAlive() then return end
 	if drowning then
 		local ox = math.max(oxygen - (CurTime() - start) * OXYGEN_LOSE_PER_SECOND, 0)
 		TTT.HUD.DrawRectangleBar(64, ScrH() - 64 - (48 + 16) * 2 - 32, 256, 32, "Oxygen: " .. math.Round(ox) .. "%", ox / 100, Color(0, 127, 195))
