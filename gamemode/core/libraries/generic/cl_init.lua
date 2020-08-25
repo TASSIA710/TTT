@@ -16,7 +16,7 @@ net.Receive("TTT:SendWin", function(len)
 	--- Called when a round ends.
 	-- @param win [number] - the win type
 	-- @realm shared
-	hook.Run("TTT:RoundOver", TTT._WinState)
+	hook.Run("TTT_RoundOver", TTT._WinState)
 
 	TTT.Derma.ShowWinScreen()
 end)

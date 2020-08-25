@@ -10,7 +10,7 @@ resource.AddSingleFile("sound/terrortown/plugins/slow_motion/slow_motion_start.w
 
 
 
-hook.Add("TTT:RoundOver", "TTT:Plugin:SlowMotion", function(result)
+hook.Add("TTT_RoundOver", "TTT:Plugin:SlowMotion", function(result)
 
 	-- Slow motion!
 	local duration = TTT.Config.Plugins["Slow Motion"].Duration

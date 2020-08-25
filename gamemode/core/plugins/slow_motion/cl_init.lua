@@ -12,7 +12,7 @@ local soundStart = "terrortown/plugins/slow_motion/slow_motion_start.wav"
 local soundEnd = "terrortown/plugins/slow_motion/slow_motion_end.wav"
 
 
-hook.Add("TTT:RoundOver", "TTT:Plugin:SlowMotion", function(result)
+hook.Add("TTT_RoundOver", "TTT:Plugin:SlowMotion", function(result)
 	surface.PlaySound(soundStart)
 
 	local slowtime = TTT.Config.Plugins["Slow Motion"].Duration
