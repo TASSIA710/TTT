@@ -18,6 +18,11 @@ function GM:TTTProgressRound()
 			ply:SetHealth(100)
 		end
 
+		-- Clear current corpses because someone died in warmup
+		for _, ent in pairs(ents.FindByClass("prop_ragdoll")) do
+			ent:Remove()
+		end
+
 		-- Set round state
 		TTT.SetRoundState(ROUND_PLAYING)
 		SetGlobalFloat("TTT:RoundEnd", CurTime() + TTT.Config.LengthRound)
