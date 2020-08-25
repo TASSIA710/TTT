@@ -6,6 +6,7 @@
 
 AddCSLuaFile("cl_PlayerButtonDown.lua")
 
+include("sv_DoPlayerDeath.lua")
 include("sv_Initialize.lua")
 include("sv_PlayerCanPickupWeapon.lua")
 include("sv_PlayerDisconnected.lua")

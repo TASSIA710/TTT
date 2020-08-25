@@ -7,6 +7,7 @@
 
 -- Define libraries
 local libraries = {
+	"corpses",
 	"database",
 	"derma",
 	"generic",
