@@ -15,6 +15,9 @@ function GM:PlayerSpawn(ply)
 		end
 	end
 
+	-- Set player model
+	hook.Run("PlayerSetModel", ply)
+
 	if TTT.GetRoundState() == ROUND_WARMUP then
 		-- Give the default loadout
 		ply:UnSpectate()
@@ -24,5 +27,6 @@ function GM:PlayerSpawn(ply)
 		ply:Spectate(OBS_MODE_ROAMING)
 	end
 
+	-- Clear 'JUST DIED' flag
 	ply._JustDied = false
 end

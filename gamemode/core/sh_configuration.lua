@@ -137,6 +137,13 @@ TTT.Config.EntityReplacements = {
 
 
 
+-- Player models
+TTT.Config.PlayerModels = {
+	"models/player/guerilla.mdl"
+}
+
+
+
 -- Debug
 TTT.Config.PreventWin = false
 
